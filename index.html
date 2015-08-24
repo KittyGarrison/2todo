@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2todo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="Two-hour Angular Chalange" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <style type="text/css"></style>
+  </head>
+  <body ng-app="2todo" class="container">
+    <div class="col-lg-1 col-offset-6 centered" ng-controller="mainController as main">
+        <h1>2todo</h1>
+        <form ng-submit="main.addTask()" >
+          <input type="text" name="firstname" ng-model="main.name">
+          <input type="submit" value="Submit">
+        </form>
+        <ul>
+          <li ng-repeat = "task in main.tasks">{{task.name}}</li>
+        </ul>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
