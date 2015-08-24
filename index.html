@@ -12,17 +12,24 @@
   </head>
   <body ng-app="2todo" class="container">
     <div class="col-lg-1 col-offset-6 centered" ng-controller="mainController as main">
-        <h1>2todo</h1>
-        <form ng-submit="main.addTask()" >
-          <input type="text" name="firstname" ng-model="main.name">
-          <input type="submit" value="Submit">
-        </form>
-        <ul>
-          <li ng-repeat = "task in main.tasks">
-            <input type="checkbox" ng-model="task.isComplete">
-            <p>{{task.name}} {{task.isComplete}}</p>
-          </li>
-        </ul>
+      <h1>2todo</h1>
+      <form >
+        <p>Order By</p>
+        <a ng-click="main.changeOrder('name')">Name</a><br>
+        <a ng-click="main.changeOrder('-isComplete')">Compleated</a><br>
+        <a ng-click="main.changeOrder('-createdOn')">Newest First</a><br>
+        <a ng-click="main.changeOrder('createdOn')">Oldest First</a><br>
+      </form>
+      <form ng-submit="main.addTask()" >
+        <input type="text" name="firstname" ng-model="main.name">
+        <input type="submit" value="new task" placeholder="task">
+      </form>
+      <ul>
+        <li class="list-group-item" ng-repeat = "task in main.tasks | orderBy: main.orderBy">
+          <p><input type="checkbox" ng-model="task.isComplete">
+          {{task.name}}</p>
+        </li>
+      </ul>
     </div>
   </body>
   <script src="app.js"></script>
