@@ -18,7 +18,10 @@
           <input type="submit" value="Submit">
         </form>
         <ul>
-          <li ng-repeat = "task in main.tasks">{{task.name}}</li>
+          <li ng-repeat = "task in main.tasks">
+            <input type="checkbox" ng-model="task.isComplete">
+            <p>{{task.name}} {{task.isComplete}}</p>
+          </li>
         </ul>
     </div>
   </body>
