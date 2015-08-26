@@ -63,6 +63,10 @@ app.delete('/api/tasks/:task_id', function(req, res) {
   });
 });
 
+app.get('*', function(req, res){
+  res.sendfile('./public/index.html');
+});
+
 
 app.listen(8080);
 console.log("App listening on port 8080")

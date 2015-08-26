@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2todo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="2 hour to do app" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script src="core.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <style>
+      html  {overflow-y:scroll;}
+    </style>
+  </head>
+  <body ng-app="2todo">
+    <div class="container" ng-controller="mainController">
+      <h1>Tasks: {{tasks.length}}</h1>
+      <div class="checkbox" ng-repeat="task in tasks">
+        <label>
+          <input type="checkbox" ng-click="deleteTask(task._id)"> {{task.text}}
+        </label>
+      </div>
+
+      <div class="row">
+        <div>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg text-center" ng-model="formData.text">
+            </div>
+            <button type="submit" class="btn" ng-click="createTask()">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript"></script>
+</html>
